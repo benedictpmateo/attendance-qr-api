@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema({
-    fullName: String,
-    department: String,
-    position: String,
-    qrCode: String,
+    fullName: { type: String, required: true },
+    department: { type: String, required: true },
+    position: { type: String, required: true },
+    qrCode: { type: String, required: true, unique: true },
 }, {
     timestamps: true
 });

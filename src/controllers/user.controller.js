@@ -12,10 +12,12 @@ exports.create = (req, res) => {
     });
 
     // Save User in the database
-    user.save()
+    User.init()
+        .then(() => User.create(user))
         .then(data => {
-            res.send(data);
-        }).catch(err => {
+            res.send(data)
+        })
+        .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while creating the User."
             });
